@@ -11,6 +11,7 @@ import (
 
 	"github.com/apenwarr/fixconsole"
 	"github.com/stashapp/stash/pkg/api"
+	"github.com/stashapp/stash/pkg/desktop"
 	"github.com/stashapp/stash/pkg/manager"
 
 	_ "github.com/golang-migrate/migrate/v4/database/sqlite3"
@@ -32,6 +33,7 @@ func init() {
 }
 
 func main() {
+	desktop.SelfUpdateFirstLaunchHandling()
 	manager.Initialize()
 	api.Start(uiBox, loginUIBox)
 
